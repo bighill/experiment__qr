@@ -48,5 +48,12 @@ Encoded text: {{ .text }}
         </div>
       </div>
     </main>
+
+    <script>
+      const mainEl = document.querySelector("main");
+      mainEl.addEventListener("click", () => {
+        window.location.href = "/";
+      });
+    </script>
   </body>
 </html>
