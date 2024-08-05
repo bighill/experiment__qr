@@ -22,6 +22,8 @@ func main() {
 
 	r.GET("/qr", handleQr)
 
+	r.StaticFile("/hash-favicon.png", "./hash-favicon.png")
+
 	fmt.Printf("\033[32mhttp://localhost:%s\033[0m\n", PORT)
 	r.Run(":" + PORT)
 }
