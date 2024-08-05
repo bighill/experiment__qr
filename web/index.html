@@ -9,11 +9,21 @@
     <title>QR</title>
   </head>
   <body>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-family: sans-serif;
+      }
+      input {
+        font-size: 1rem;
+      }
+    </style>
     <h1>QR</h1>
 
     <form action="/qr" method="get">
       <input type="text" name="str" />
-      <input type="submit" value="Go" />
+      <input type="submit" value="Generate" />
     </form>
   </body>
 </html>
