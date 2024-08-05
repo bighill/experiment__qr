@@ -1,0 +1,52 @@
+<!-- 
+
+Encoded text: {{ .text }}
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QR Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      p {
+        /* margin-bottom: 42px; */
+        text-align: center;
+      }
+
+      img {
+        filter: invert(100%);
+      }
+
+      .qr-code {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+
+    <main>
+      <div>
+        <p>{{ .text }}</p>
+        <div class="qr-code">
+          <img src="data:image/png;base64,{{ .qrImage }}" alt="QR Code" />
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
