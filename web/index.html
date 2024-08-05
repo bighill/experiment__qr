@@ -1,19 +1,32 @@
-<!-- TODO style -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/hash-favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/hash-favicon.png" />
     <title>QR</title>
   </head>
   <body>
     <style>
+      html,
+      body,
+      form {
+        height: 100%;
+      }
       body {
         background-color: black;
         color: white;
         font-family: sans-serif;
+        margin: 0;
+      }
+      h1 {
+        position: absolute;
+        margin: 0;
+      }
+      form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       input {
         font-size: 1rem;
