@@ -1,5 +1,9 @@
 package main
 
+// TODO host on `deb01`
+// - [ ] nginx reverse proxy
+// - [ ] deploy pipeline
+
 import (
 	"encoding/base64"
 	"fmt"
