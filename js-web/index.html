@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/hash-favicon.png" />
+    <title>QR</title>
+  </head>
+  <body>
+    <style>
+      html,
+      body,
+      form,
+      section {
+        height: 100%;
+      }
+      body {
+        background-color: black;
+        color: white;
+        font-family: sans-serif;
+        margin: 0;
+      }
+      h1 {
+        position: absolute;
+        margin: 0;
+      }
+      form,
+      section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      input {
+        font-size: 1rem;
+      }
+      p {
+        text-align: center;
+      }
+    </style>
+
+    <h1>QR</h1>
+
+    <form>
+      <input id="text" type="text" name="str" />
+      <input type="submit" value="Generate" />
+    </form>
+
+    <section style="display: none">
+      <div>
+        <p id="ptext"></p>
+        <div id="qrcode"></div>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+      const SIZE = 256;
+      const el = {
+        form: document.querySelector("form"),
+        input: document.querySelector("#text"),
+        section: document.querySelector("section"),
+        ptext: document.querySelector("#ptext"),
+        qrcode: document.querySelector("#qrcode"),
+      };
+
+      function showForm() {
+        el.form.style.display = "flex";
+        el.section.style.display = "none";
+      }
+
+      function showQR() {
+        el.form.style.display = "none";
+        el.section.style.display = "flex";
+      }
+
+      function generate(text) {
+        const qrcode = new QRCode(el.qrcode, {
+          text: text,
+          width: SIZE,
+          height: SIZE,
+          colorDark: "black",
+          colorLight: "white",
+          correctLevel: QRCode.CorrectLevel.H,
+        });
+      }
+
+      function handleSubmit(ev) {
+        ev.preventDefault();
+        el.qrcode.innerHTML = "";
+        generate(el.input.value);
+        el.ptext.textContent = el.input.value;
+        showQR();
+      }
+
+      el.form.addEventListener("submit", handleSubmit);
+      el.section.addEventListener("click", showForm);
+
+      generate("hello");
+    </script>
+  </body>
+</html>
